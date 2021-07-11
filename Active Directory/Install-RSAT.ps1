@@ -61,10 +61,10 @@ switch ( $win10build ) {
 # Run the commands against the build we have installed
 switch ( $build ) {
     '1709' { 
-        Start-Process wusa.exe -ArgumentList "\\qrbak07\IT-Installs\Microsoft\RSAT\WindowsTH-RSAT_WS_1709-x64.msu", "/quiet", "/norestart" -wait 
+        Write-Output 'Upgrade Windows 10'
     }
     '1803' { 
-        Start-Process wusa.exe -ArgumentList "\\qrbak07\IT-Installs\Microsoft\RSAT\WindowsTH-RSAT_WS_1803-x64.msu", "/quiet", "/norestart" -wait 
+        Write-Output 'Upgrade Windows 10'
     }
     { $_ -ge '1809' } {
         Write-Host "Setting Machine to not use WSUS... `n`n`n`n`n`n`n`n"
