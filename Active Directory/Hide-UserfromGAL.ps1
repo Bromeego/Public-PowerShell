@@ -7,10 +7,9 @@ $disabledusers = @()
 #######################################################
 # Add the OU's we want to look at                     #
 # e.g. 'OU=Users,OU=Building,DC=Business,DC=co,DC=nz' #
-# for multiple add a comma (,) after each.            #
 #######################################################
 $Searchbase = @(
-  
+
 )
 
 # For each OU run the following command and add it into the array, this is OU recursive
@@ -18,7 +17,7 @@ $Searchbase = @(
 foreach ($OU in $Searchbase) {
     $disabledusers += Get-ADUser -SearchBase $OU -SearchScope OneLevel -Filter { Enabled -eq $false } -Properties * |`
             Where-Object msExchHideFromAddressLists -NE 'TRUE' | `
-            Select-Object sAMAccountName, Name, lastlogondate
+            Select-Object sAMAccountName, Name, lastlogondate, msExchHideFromAddressLists
 }
 
 if ($UpdateGALs -eq $true) {
