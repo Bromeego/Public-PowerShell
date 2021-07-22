@@ -1,5 +1,8 @@
+# Ask for the string you want to search for
+$string = Read-Host -Prompt 'Enter in the string you wish to search for'
+
 # Get the string we want to search for 
-$string = 'Text Here'
+#$string = 'X_Exceptions'
  
 # Set the domain to search for GPOs 
 $DomainName = $env:USERDNSDOMAIN 
